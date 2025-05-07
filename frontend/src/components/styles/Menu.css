@@ -28,14 +28,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    opacity: 0; /* Hidden initially for animation */
-    transform: translateY(20px); /* Slight slide-up effect */
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    min-height: 150px; /* Ensure the container has enough height */
+    min-height: 150px;
   }
   
   .menu-item.visible {
-    opacity: 1; /* Fade in when visible */
+    opacity: 1;
     transform: translateY(0);
   }
   
@@ -59,14 +59,33 @@
     margin: 0;
   }
   
-  .menu-image {
-    width: 120px; /* Reduced size to fit better */
+  .menu-image-wrapper {
+    width: 120px;
     height: 120px;
-    max-width: 100%; /* Ensure it doesn't overflow */
-    max-height: 100%; /* Ensure it doesn't overflow */
-    object-fit: contain; /* Scale the image without cropping */
     border-radius: 10px;
-    border: 2px solid #2A6060; /* Teal border for images */
+    border: 2px solid #2A6060; /* Teal border */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .menu-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #D4AF37; /* Gold inner border */
+    border-radius: 10px;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  .menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .menu-link {
@@ -86,10 +105,9 @@
     background-color: #FFDAB9; /* Peach on hover */
   }
   
-  /* Responsive adjustments for smaller screens */
   @media (max-width: 600px) {
     .menu-item {
-      flex-direction: column; /* Stack text and image on small screens */
+      flex-direction: column;
       align-items: flex-start;
     }
   
@@ -98,9 +116,9 @@
       padding-bottom: 15px;
     }
   
-    .menu-image {
+    .menu-image-wrapper {
       width: 100px;
       height: 100px;
-      align-self: center; /* Center the image on small screens */
+      align-self: center;
     }
   }
