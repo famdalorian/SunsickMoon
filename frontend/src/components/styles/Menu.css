@@ -1,0 +1,122 @@
+.Menu-section {
+    padding: 4rem 2rem;
+    background-color: var(--teal);
+  }
+  
+  .Menu-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--cream);
+    position: relative;
+  }
+  
+  .Menu-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background: var(--gold);
+  }
+  
+  .menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .menu-item {
+    background-color: var(--cream);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .menu-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .menu-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--peach);
+  }
+  
+  .menu-item p {
+    font-size: 1rem;
+    color: var(--dark-teal);
+  }
+  
+  .menu-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px solid var(--gold);
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    background-color: var(--gold);
+    color: var(--dark-teal);
+  }
+  
+  @media (max-width: 768px) {
+    .Menu-section {
+      padding: 2rem 1rem;
+    }
+  
+    .Menu-section h2 {
+      font-size: 2rem;
+    }
+  
+    .menu-items {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .menu-item {
+      padding: 1.5rem;
+    }
+  
+    .menu-item h3 {
+      font-size: 1.3rem;
+    }
+  
+    .menu-item p {
+      font-size: 0.9rem;
+    }
+  
+    .menu-link {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Menu-section h2 {
+      font-size: 1.8rem;
+    }
+  
+    .menu-item h3 {
+      font-size: 1.2rem;
+    }
+  
+    .menu-item p {
+      font-size: 0.85rem;
+    }
+  
+    .menu-link {
+      font-size: 0.9rem;
+    }
+  }
