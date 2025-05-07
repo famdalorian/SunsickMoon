@@ -1,122 +1,106 @@
 .Menu-section {
-    padding: 4rem 2rem;
-    background-color: var(--teal);
+    background-color: #FFF5E6; /* Cream background */
+    padding: 50px 20px;
+    text-align: center;
   }
   
   .Menu-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--cream);
-    position: relative;
-  }
-  
-  .Menu-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 4px;
-    background: var(--gold);
+    font-family: 'Georgia', serif;
+    font-size: 2.5em;
+    color: #2A6060; /* Teal */
+    margin-bottom: 40px;
+    border-bottom: 3px solid #D4AF37; /* Gold accent */
+    display: inline-block;
+    padding-bottom: 10px;
   }
   
   .menu-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
   }
   
   .menu-item {
-    background-color: var(--cream);
-    padding: 2rem;
+    background-color: #FFFFFF; /* White background for items */
+    border: 2px solid #D4AF37; /* Gold border */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(50px);
+    margin: 20px 0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0; /* Hidden initially for animation */
+    transform: translateY(20px); /* Slight slide-up effect */
     transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: 150px; /* Ensure the container has enough height */
   }
   
   .menu-item.visible {
-    opacity: 1;
+    opacity: 1; /* Fade in when visible */
     transform: translateY(0);
   }
   
+  .text-content {
+    flex: 1;
+    padding-right: 20px;
+    text-align: left;
+  }
+  
   .menu-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--peach);
+    font-family: 'Georgia', serif;
+    font-size: 1.5em;
+    color: #2A6060; /* Teal */
+    margin: 0 0 10px 0;
   }
   
   .menu-item p {
-    font-size: 1rem;
-    color: var(--dark-teal);
+    font-family: 'Georgia', serif;
+    font-size: 1em;
+    color: #555;
+    margin: 0;
+  }
+  
+  .menu-image {
+    width: 120px; /* Reduced size to fit better */
+    height: 120px;
+    max-width: 100%; /* Ensure it doesn't overflow */
+    max-height: 100%; /* Ensure it doesn't overflow */
+    object-fit: contain; /* Scale the image without cropping */
+    border-radius: 10px;
+    border: 2px solid #2A6060; /* Teal border for images */
   }
   
   .menu-link {
     display: inline-block;
-    margin-top: 2rem;
-    color: var(--gold);
+    margin-top: 30px;
+    font-family: 'Georgia', serif;
+    font-size: 1.2em;
+    color: #2A6060; /* Teal */
     text-decoration: none;
-    font-size: 1.2rem;
-    border: 2px solid var(--gold);
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #D4AF37; /* Gold border */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
   }
   
   .menu-link:hover {
-    background-color: var(--gold);
-    color: var(--dark-teal);
+    background-color: #FFDAB9; /* Peach on hover */
   }
   
-  @media (max-width: 768px) {
-    .Menu-section {
-      padding: 2rem 1rem;
-    }
-  
-    .Menu-section h2 {
-      font-size: 2rem;
-    }
-  
-    .menu-items {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
     .menu-item {
-      padding: 1.5rem;
+      flex-direction: column; /* Stack text and image on small screens */
+      align-items: flex-start;
     }
   
-    .menu-item h3 {
-      font-size: 1.3rem;
+    .text-content {
+      padding-right: 0;
+      padding-bottom: 15px;
     }
   
-    .menu-item p {
-      font-size: 0.9rem;
-    }
-  
-    .menu-link {
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .Menu-section h2 {
-      font-size: 1.8rem;
-    }
-  
-    .menu-item h3 {
-      font-size: 1.2rem;
-    }
-  
-    .menu-item p {
-      font-size: 0.85rem;
-    }
-  
-    .menu-link {
-      font-size: 0.9rem;
+    .menu-image {
+      width: 100px;
+      height: 100px;
+      align-self: center; /* Center the image on small screens */
     }
   }
