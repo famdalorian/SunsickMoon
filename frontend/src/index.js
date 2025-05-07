@@ -4,6 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+document.addEventListener('DOMContentLoaded', () => {
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  menuItems.forEach((item) => observer.observe(item));
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
