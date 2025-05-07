@@ -1,11 +1,36 @@
-import logo from './logo.png'; // Your SunSick Moon logo
+import { useState } from 'react';
+import logo from './assets/logo.png'; // Your SunSick Moon logo
 import './App.css';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="App">
-      {/* Hero Section with Geometric Overlay */}
-      <header className="App-header">
+      {/* Navbar */}
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <img src={logo} alt="SunSick Moon Logo" className="nav-logo" />
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <span className={isMenuOpen ? 'bar active' : 'bar'}></span>
+          <span className={isMenuOpen ? 'bar active' : 'bar'}></span>
+          <span className={isMenuOpen ? 'bar active' : 'bar'}></span>
+        </div>
+        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          <li><a href="#home" onClick={toggleMenu}>Home</a></li>
+          <li><a href="#about" onClick={toggleMenu}>About</a></li>
+          <li><a href="#menu" onClick={toggleMenu}>Menu</a></li>
+          <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
+        </ul>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="App-header" id="home">
         <div className="header-overlay">
           <img src={logo} className="App-logo" alt="SunSick Moon Logo" />
           <h1>SunSick Moon</h1>
@@ -24,7 +49,7 @@ function App() {
       </header>
 
       {/* About Section */}
-      <section className="About-section">
+      <section className="About-section" id="about">
         <h2>About SunSick Moon</h2>
         <p>
           At SunSick Moon, we bring the elegance of fine dining to the streets. Our
@@ -54,7 +79,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section className="Contact-section">
+      <section className="Contact-section" id="contact">
         <h2>Find Us</h2>
         <p>Follow us on social media for our latest locations and events!</p>
         <div className="social-links">
