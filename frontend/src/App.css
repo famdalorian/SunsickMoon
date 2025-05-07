@@ -25,8 +25,7 @@
 .App-header {
   position: relative;
   min-height: 100vh;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f') no-repeat center center/contain; */
-   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f') no-repeat center center/110%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f') no-repeat center center/110%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,26 +248,164 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
+  /* Header Adjustments */
+  .App-header {
+    min-height: 70vh; /* Reduced height for mobile */
+    background-size: 130%; /* Slightly zoomed out for mobile */
   }
 
-  .tagline {
-    font-size: 1.2rem;
+  .header-overlay {
+    padding: 1.5rem;
   }
 
   .App-logo {
-    height: 150px;
+    height: 120px; /* Further reduced for mobile */
+    margin-bottom: 0.5rem;
   }
 
-  .About-section,
-  .Menu-section,
-  .Contact-section {
+  h1 {
+    font-size: 2rem; /* Smaller for mobile */
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .App-link {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .art-deco-overlay {
+    height: 50px; /* Reduced height for mobile */
+  }
+
+  /* About Section */
+  .About-section {
     padding: 2rem 1rem;
+  }
+
+  .About-section h2 {
+    font-size: 2rem;
+  }
+
+  .About-section p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  /* Menu Section */
+  .Menu-section {
+    padding: 2rem 1rem;
+  }
+
+  .Menu-section h2 {
+    font-size: 2rem;
   }
 
   .menu-items {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .menu-item {
+    padding: 1.5rem;
+  }
+
+  .menu-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .menu-item p {
+    font-size: 0.9rem;
+  }
+
+  .menu-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Contact Section */
+  .Contact-section {
+    padding: 2rem 1rem;
+  }
+
+  .Contact-section h2 {
+    font-size: 2rem;
+  }
+
+  .Contact-section p {
+    font-size: 1rem;
+  }
+
+  .social-links a {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  /* Footer */
+  .App-footer {
+    padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra Small Screens (e.g., older phones) */
+@media (max-width: 480px) {
+  .App-header {
+    min-height: 60vh;
+    background-size: 150%; /* Further zoomed out for very small screens */
+  }
+
+  .App-logo {
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .App-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .art-deco-overlay {
+    height: 40px;
+  }
+
+  .About-section h2,
+  .Menu-section h2,
+  .Contact-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .About-section p,
+  .Contact-section p {
+    font-size: 0.9rem;
+  }
+
+  .menu-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .menu-item p {
+    font-size: 0.85rem;
+  }
+
+  .menu-link {
+    font-size: 0.9rem;
+  }
+
+  .social-links a {
+    font-size: 0.9rem;
+    margin: 0 0.4rem;
   }
 }
 
