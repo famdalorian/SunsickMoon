@@ -1,49 +1,89 @@
-.Header {
-    background-color: #FFDAB9; /* Peach */
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.App-header {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f4cbb2 0%, #cfe3cc 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  overflow: hidden;
+}
+
+/* Text Container with Embossed/Glass Effect */
+.header-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(253, 250, 244, 0.7); /* subtle matte-cream tint */
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05),
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+/* Rotating Logo */
+.App-logo {
+  height: 180px;
+  margin-bottom: 1.2rem;
+  animation: spin 30s linear infinite;
+  filter: drop-shadow(0 3px 6px rgba(90, 70, 50, 0.2));
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .Header h1 {
-    margin: 0;
-    font-size: 1.8em;
-    color: #2A6060; /* Teal */
+  to {
+    transform: rotate(360deg);
   }
-  
-  .Header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .Header nav a {
-    font-family: 'Georgia', serif;
-    font-size: 1.1em;
-    color: #2A6060; /* Teal */
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .Header nav a:hover {
-    color: #D4AF37; /* Gold on hover */
-  }
-  
-  @media (max-width: 600px) {
-    .Header {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    .Header nav ul {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
+}
+
+/* Title */
+.App-header h1 {
+  font-size: 3rem;
+  color: var(--pastel-gold);
+  margin-bottom: 0.6rem;
+  text-shadow: 2px 2px 4px rgba(90, 70, 50, 0.3);
+}
+
+/* Tagline */
+.tagline {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--rose-taupe);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+.App-link {
+  background-color: var(--pastel-gold);
+  color: var(--matte-cream);
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.App-link:hover {
+  background-color: var(--pastel-peach);
+  transform: scale(1.05);
+}
+
+/* Art Deco Overlay Wave */
+.art-deco-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+}
+/* .App-logo:hover {
+  animation-play-state: paused;
+} */

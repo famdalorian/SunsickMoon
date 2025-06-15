@@ -1,48 +1,53 @@
-/* CSS Custom Properties for Colors */
 :root {
-  --peach: #f4a6a0;
-  --teal: #a2d4c9;
-  --gold: #d4a373;
-  --cream: #f8e9d3;
-  --dark-teal: #2c3e50;
+  --pastel-peach: #f4cbb2;
+  --pastel-mint: #cfe3cc;
+  --pastel-gold: #c49450;
+  --matte-cream: #fdfaf4;
+  --rose-taupe: #5e4737;
+  --text-shadow: rgba(90, 70, 50, 0.2);
+  --soft-border: rgba(195, 160, 115, 0.4);
 }
 
-/* Reset */
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Enable Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+body,
 .App {
-  font-family: 'Cinzel', serif; /* Art Deco-inspired font */
+  font-family: 'Cinzel', serif;
+  background-color: var(--matte-cream);
+  color: var(--rose-taupe);
   text-align: center;
-  color: var(--dark-teal);
-  background-color: var(--cream);
+}
+
+/* Embossed Effect Helper */
+.embossed {
+  background: var(--matte-cream);
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 10px;
 }
 
 /* Navbar */
 .navbar {
+  background-color: var(--pastel-mint);
+  box-shadow: 0 4px 12px var(--soft-border);
+  padding: 1rem 2rem;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  background-color: var(--dark-teal);
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-logo {
-  display: flex;
   align-items: center;
 }
 
@@ -50,26 +55,23 @@ html {
   height: 50px;
 }
 
+/* Default Desktop */
 .nav-links {
   display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin: 0 1rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  color: var(--gold);
+  color: var(--pastel-gold);
+  font-weight: bold;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--peach);
+  color: var(--pastel-peach);
 }
 
 /* Hamburger Menu */
@@ -85,223 +87,143 @@ html {
 .bar {
   width: 100%;
   height: 3px;
-  background-color: var(--gold);
+  background-color: var(--pastel-gold);
   transition: all 0.3s ease;
 }
 
-/* Hamburger Animation */
 .bar.active:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 .bar.active:nth-child(2) {
   opacity: 0;
 }
-
 .bar.active:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Header with Unsplash Image */
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--pastel-mint);
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+}
+
+/* Header (moved here for consolidation) */
 .App-header {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f') no-repeat center center/110%;
+  background: linear-gradient(145deg, #f4cbb2 0%, #cfe3cc 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 70px;
   overflow: hidden;
-  padding-top: 70px; /* Account for fixed navbar height */
 }
 
 .header-overlay {
   position: relative;
-  z-index: 1;
-  color: var(--cream);
-  padding: 2rem;
+  z-index: 2;
+  background: rgba(253, 250, 244, 0.7);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05),
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.App-logo {
+  height: 180px;
+  margin-bottom: 1.2rem;
+  animation: spin 30s linear infinite;
+  filter: drop-shadow(0 3px 6px rgba(90, 70, 50, 0.2));
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  color: var(--pastel-gold);
+  margin-bottom: 0.6rem;
+  text-shadow: 2px 2px 4px rgba(90, 70, 50, 0.3);
+}
+
+.tagline {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--rose-taupe);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.App-link {
+  background-color: var(--pastel-gold);
+  color: var(--matte-cream);
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.App-link:hover {
+  background-color: var(--pastel-peach);
+  transform: scale(1.05);
 }
 
 .art-deco-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100px;
-  z-index: 0;
-}
-
-.bottom-overlay {
-  top: auto;
-  bottom: 0;
-}
-
-.App-logo {
-  height: 200px;
-  margin-bottom: 1rem;
-  animation: rotateGlow 10s infinite linear;
-}
-
-@keyframes rotateGlow {
-  0% {
-    transform: rotate(0deg);
-    filter: drop-shadow(0 0 10px var(--gold));
-  }
-  100% {
-    transform: rotate(360deg);
-    filter: drop-shadow(0 0 20px var(--gold));
-  }
-}
-
-h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  color: var(--gold);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
-}
-
-.tagline {
-  font-size: 1.5rem;
-  font-style: italic;
-  color: var(--cream);
-  margin-bottom: 2rem;
-}
-
-.App-link {
-  background-color: var(--gold);
-  color: var(--dark-teal);
-  padding: 1rem 2rem;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.App-link:hover {
-  background-color: var(--peach);
-  transform: scale(1.05);
-}
-
-/* About Section */
-.About-section {
-  padding: 4rem 2rem;
-  background-color: var(--cream);
-  position: relative;
-}
-
-.About-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--dark-teal);
-  position: relative;
-  display: inline-block;
-}
-
-.About-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 4px;
-  background: var(--gold);
-}
-
-.About-section p {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--dark-teal);
-}
-
-/* Menu Section */
-.Menu-section {
-  padding: 4rem 2rem;
-  background-color: var(--teal);
-}
-
-.Menu-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: var(--cream);
-  position: relative;
-}
-
-.Menu-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 4px;
-  background: var(--gold);
-}
-
-.menu-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.menu-item {
-  background-color: var(--cream);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.menu-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.menu-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--peach);
-}
-
-.menu-item p {
-  font-size: 1rem;
-  color: var(--dark-teal);
-}
-
-.menu-link {
-  display: inline-block;
-  margin-top: 2rem;
-  color: var(--gold);
-  text-decoration: none;
-  font-size: 1.2rem;
-  border: 2px solid var(--gold);
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.menu-link:hover {
-  background-color: var(--gold);
-  color: var(--dark-teal);
+  z-index: 1;
 }
 
 /* Contact Section */
 .Contact-section {
   padding: 4rem 2rem;
-  background-color: var(--dark-teal);
-  color: var(--cream);
-  position: relative;
+  background-color: var(--pastel-mint);
+  color: var(--rose-taupe);
   text-align: center;
 }
 
 .Contact-section h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--pastel-gold);
+  text-shadow: 1px 1px 2px var(--text-shadow);
 }
 
 .Contact-section p {
@@ -313,27 +235,27 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
   flex-wrap: wrap;
+  gap: 1.2rem;
   margin-top: 1.5rem;
 }
 
 .social-icon {
   width: 48px;
   height: 48px;
-  padding: 6px;
-  background: var(--cream);
+  background: var(--matte-cream);
   border-radius: 12px;
+  padding: 6px;
   transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
   box-shadow:
-    inset 2px 2px 4px rgba(0, 0, 0, 0.1),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.2);
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .social-icon:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0 4px 4px rgba(255, 208, 162, 0.4));
+  filter: drop-shadow(0 2px 4px var(--pastel-peach));
 }
 
 .social-links a {
@@ -344,212 +266,58 @@ h1 {
 
 /* Footer */
 .App-footer {
+  background-color: var(--matte-cream);
   padding: 2rem;
-  background-color: var(--cream);
-  color: var(--dark-teal);
+  color: var(--rose-taupe);
   font-size: 0.9rem;
+  border-top: 1px solid var(--soft-border);
 }
 
-/* Responsive Design */
+/* Responsive Text & Layout */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-
-  .nav-logo {
-    height: 40px;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: var(--dark-teal);
-    flex-direction: column;
-    padding: 1rem 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 1rem 0;
-  }
-
-  .nav-links a {
-    font-size: 1.5rem;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .App-header {
-    min-height: 70vh;
-    background-size: 130%;
-    padding-top: 70px;
-  }
-
-  .header-overlay {
-    padding: 1.5rem;
-  }
-
   .App-logo {
     height: 120px;
-    margin-bottom: 0.5rem;
   }
 
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  .App-header h1 {
+    font-size: 2.2rem;
   }
 
   .tagline {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .App-link {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
-
-  .art-deco-overlay {
-    height: 50px;
-  }
-
-  .About-section,
-  .Menu-section,
-  .Contact-section {
-    padding: 2rem 1rem;
-  }
-
-  .About-section h2,
-  .Menu-section h2,
-  .Contact-section h2 {
-    font-size: 2rem;
-  }
-
-  .About-section p,
-  .Contact-section p {
-    font-size: 1rem;
-    max-width: 90%;
-  }
-
-  .menu-items {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .menu-item {
-    padding: 1.5rem;
-  }
-
-  .menu-item h3 {
-    font-size: 1.3rem;
-  }
-
-  .menu-item p {
-    font-size: 0.9rem;
-  }
-
-  .menu-link {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
   }
 
   .social-icon {
     width: 40px;
     height: 40px;
-    padding: 5px;
+    padding: 4px;
   }
 
-  .App-footer {
-    padding: 1.5rem;
-    font-size: 0.8rem;
+  .App-link {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .nav-logo {
-    height: 35px;
-  }
-
-  .nav-links {
-    top: 60px;
-  }
-
-  .nav-links a {
-    font-size: 1.3rem;
-  }
-
-  .App-header {
-    min-height: 60vh;
-    background-size: 150%;
-  }
-
   .App-logo {
     height: 100px;
   }
 
-  h1 {
+  .App-header h1 {
     font-size: 1.8rem;
   }
 
   .tagline {
-    font-size: 0.9rem;
-  }
-
-  .App-link {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-
-  .art-deco-overlay {
-    height: 40px;
-  }
-
-  .About-section h2,
-  .Menu-section h2,
-  .Contact-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .About-section p,
-  .Contact-section p {
-    font-size: 0.9rem;
-  }
-
-  .menu-item h3 {
-    font-size: 1.2rem;
-  }
-
-  .menu-item p {
-    font-size: 0.85rem;
-  }
-
-  .menu-link {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .social-icon {
     width: 36px;
     height: 36px;
-    padding: 4px;
   }
-}
 
-/* Scroll Animation for Menu Items */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .App-link {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
   }
 }
