@@ -3,12 +3,18 @@ import '../components/styles/About.css';
 function About() {
   return (
     <section className="About-section" id="about">
-      <h2>About SunSick Moon</h2>
-      <p>
-        At SunSick Moon, we bring the elegance of fine dining to the streets. Our
-        food truck serves meticulously crafted dishes using fresh, local ingredients,
-        blending culinary artistry with the freedom of the open road.
-      </p>
+      <div className="about-content">
+        <h2>About SunSick Moon</h2>
+        <p>
+          SunSick Moon is where wanderlust meets fine dining.
+          We transform locally sourced ingredients into elegant, heartfelt meals —
+          served from the comfort of our beautifully crafted mobile kitchen.
+        </p>
+        <p>
+          Inspired by vintage charm and modern simplicity, we bring a touch of art and soul
+          to every plate, wherever the road may take us.
+        </p>
+      </div>
     </section>
   );
 }

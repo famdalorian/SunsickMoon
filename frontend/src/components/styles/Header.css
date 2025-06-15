@@ -1,3 +1,13 @@
+:root {
+  --pastel-peach: #f4cbb2;
+  --pastel-mint: #cfe3cc;
+  --pastel-gold: #c49450;
+  --matte-cream: #fdfaf4;
+  --rose-taupe: #5e4737;
+  --soft-border: rgba(195, 160, 115, 0.4);
+}
+
+/* Fullscreen Header */
 .App-header {
   position: relative;
   min-height: 100vh;
@@ -9,7 +19,7 @@
   overflow: hidden;
 }
 
-/* Text Container with Embossed/Glass Effect */
+/* Overlay Container with Glass/Embossed Look */
 .header-overlay {
   position: relative;
   z-index: 2;
@@ -22,6 +32,25 @@
     0 6px 16px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(8px);
   text-align: center;
+  overflow: hidden;
+}
+
+/* William Morris Pattern Overlay */
+.header-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/pattern.png') repeat;
+  background-size: 280px auto;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the pattern */
+.header-overlay * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Rotating Logo */
@@ -41,7 +70,7 @@
   }
 }
 
-/* Title */
+/* Title Styling */
 .App-header h1 {
   font-size: 3rem;
   color: var(--pastel-gold);
@@ -49,7 +78,7 @@
   text-shadow: 2px 2px 4px rgba(90, 70, 50, 0.3);
 }
 
-/* Tagline */
+/* Tagline Text */
 .tagline {
   font-size: 1.3rem;
   font-style: italic;
@@ -75,7 +104,7 @@
   transform: scale(1.05);
 }
 
-/* Art Deco Overlay Wave */
+/* Decorative Wave at Bottom */
 .art-deco-overlay {
   position: absolute;
   bottom: 0;
@@ -84,6 +113,3 @@
   height: 100px;
   z-index: 1;
 }
-/* .App-logo:hover {
-  animation-play-state: paused;
-} */

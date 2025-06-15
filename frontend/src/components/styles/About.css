@@ -1,57 +1,87 @@
 .About-section {
-    padding: 4rem 2rem;
-    background-color: var(--cream);
-    position: relative;
+  position: relative;
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #fdfaf4, #f4cbb2, #cfe3cc);
+  overflow: hidden;
+}
+
+/* Pattern Overlay */
+.About-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/pattern.png') repeat;
+  background-size: 300px auto;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.About-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--pastel-gold);
+  position: relative;
+  display: inline-block;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.About-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background: var(--pastel-mint);
+}
+
+.About-section p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--rose-taupe);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+}
+
+@media (max-width: 768px) {
+  .About-section {
+    padding: 3rem 1.5rem;
   }
-  
+
+  .about-content {
+    padding: 2rem 1rem;
+  }
+
   .About-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark-teal);
-    position: relative;
-    display: inline-block;
+    font-size: 2rem;
   }
-  
-  .About-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 4px;
-    background: var(--gold);
-  }
-  
+
   .About-section p {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: var(--dark-teal);
+    font-size: 1rem;
   }
-  
-  @media (max-width: 768px) {
-    .About-section {
-      padding: 2rem 1rem;
-    }
-  
-    .About-section h2 {
-      font-size: 2rem;
-    }
-  
-    .About-section p {
-      font-size: 1rem;
-      max-width: 90%;
-    }
+}
+
+@media (max-width: 480px) {
+  .About-section h2 {
+    font-size: 1.8rem;
   }
-  
-  @media (max-width: 480px) {
-    .About-section h2 {
-      font-size: 1.8rem;
-    }
-  
-    .About-section p {
-      font-size: 0.9rem;
-    }
+
+  .About-section p {
+    font-size: 0.95rem;
   }
+}
