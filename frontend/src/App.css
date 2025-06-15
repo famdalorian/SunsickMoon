@@ -296,6 +296,7 @@ h1 {
   background-color: var(--dark-teal);
   color: var(--cream);
   position: relative;
+  text-align: center;
 }
 
 .Contact-section h2 {
@@ -308,16 +309,37 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-.social-links a {
-  color: var(--gold);
-  text-decoration: none;
-  margin: 0 1rem;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
-.social-links a:hover {
-  color: var(--peach);
+.social-icon {
+  width: 48px;
+  height: 48px;
+  padding: 6px;
+  background: var(--cream);
+  border-radius: 12px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.15));
+  box-shadow:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 4px rgba(255, 208, 162, 0.4));
+}
+
+.social-links a {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
 }
 
 /* Footer */
@@ -330,7 +352,6 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* Navbar */
   .navbar {
     padding: 1rem;
   }
@@ -366,11 +387,10 @@ h1 {
     display: flex;
   }
 
-  /* Header Adjustments */
   .App-header {
     min-height: 70vh;
     background-size: 130%;
-    padding-top: 70px; /* Ensure content isn't hidden behind navbar */
+    padding-top: 70px;
   }
 
   .header-overlay {
@@ -401,27 +421,22 @@ h1 {
     height: 50px;
   }
 
-  /* About Section */
-  .About-section {
+  .About-section,
+  .Menu-section,
+  .Contact-section {
     padding: 2rem 1rem;
   }
 
-  .About-section h2 {
+  .About-section h2,
+  .Menu-section h2,
+  .Contact-section h2 {
     font-size: 2rem;
   }
 
-  .About-section p {
+  .About-section p,
+  .Contact-section p {
     font-size: 1rem;
     max-width: 90%;
-  }
-
-  /* Menu Section */
-  .Menu-section {
-    padding: 2rem 1rem;
-  }
-
-  .Menu-section h2 {
-    font-size: 2rem;
   }
 
   .menu-items {
@@ -446,37 +461,19 @@ h1 {
     padding: 0.5rem 1rem;
   }
 
-  /* Contact Section */
-  .Contact-section {
-    padding: 2rem 1rem;
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
   }
 
-  .Contact-section h2 {
-    font-size: 2rem;
-  }
-
-  .Contact-section p {
-    font-size: 1rem;
-  }
-
-  .social-links a {
-    font-size: 1rem;
-    margin: 0 0.5rem;
-  }
-
-  /* Footer */
   .App-footer {
     padding: 1.5rem;
     font-size: 0.8rem;
   }
 }
 
-/* Extra Small Screens (e.g., older phones) */
 @media (max-width: 480px) {
-  .navbar {
-    padding: 0.8rem;
-  }
-
   .nav-logo {
     height: 35px;
   }
@@ -538,9 +535,10 @@ h1 {
     font-size: 0.9rem;
   }
 
-  .social-links a {
-    font-size: 0.9rem;
-    margin: 0 0.4rem;
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    padding: 4px;
   }
 }
 
