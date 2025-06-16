@@ -1,124 +1,216 @@
 .Menu-section {
-    background-color: #FFF5E6; /* Cream background */
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
+  background: linear-gradient(135deg, #fff5e6, #fef3e2);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.Menu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../../assets/pattern.png');
+  background-size: 300px;
+  background-repeat: repeat;
+  opacity: 0.06;
+  z-index: 0;
+}
+
+.Menu-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: var(--dark-teal);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-description {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: var(--dark-teal);
+  font-size: 1.2rem;
+  z-index: 1;
+  position: relative;
+  font-family: 'Georgia', serif;
+}
+
+.menu-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-filters button {
+  font-family: 'Cinzel', serif;
+  background-color: transparent;
+  border: 2px solid var(--gold);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  color: var(--dark-teal);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.menu-filters button:hover,
+.menu-filters .active {
+  background-color: var(--pastel-gold);
+  color: var(--matte-cream);
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.menu-items {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-item {
+  background-color: var(--matte-cream);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05),
+    0 6px 18px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.menu-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-item h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--pastel-gold);
+  margin-bottom: 0.3rem;
+}
+
+.menu-item p {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: var(--dark-teal);
+  margin: 0;
+}
+
+.menu-tag {
+  margin-top: 0.6rem;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: var(--pastel-gold);
+  color: var(--matte-cream);
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.menu-image-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-link {
+  display: inline-block;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  font-family: 'Cinzel', serif;
+  background-color: var(--pastel-gold);
+  color: var(--matte-cream);
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  background-color: var(--pastel-peach);
+  color: var(--dark-teal);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .Menu-section h2 {
-    font-family: 'Georgia', serif;
-    font-size: 2.5em;
-    color: #2A6060; /* Teal */
-    margin-bottom: 40px;
-    border-bottom: 3px solid #D4AF37; /* Gold accent */
-    display: inline-block;
-    padding-bottom: 10px;
+    font-size: 2rem;
   }
-  
-  .menu-items {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+
   .menu-item {
-    background-color: #FFFFFF; /* White background for items */
-    border: 2px solid #D4AF37; /* Gold border */
-    border-radius: 10px;
-    margin: 20px 0;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    min-height: 150px;
+    padding: 1.5rem;
   }
-  
-  .menu-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .text-content {
-    flex: 1;
-    padding-right: 20px;
-    text-align: left;
-  }
-  
+
   .menu-item h3 {
-    font-family: 'Georgia', serif;
-    font-size: 1.5em;
-    color: #2A6060; /* Teal */
-    margin: 0 0 10px 0;
+    font-size: 1.3rem;
   }
-  
-  .menu-item p {
-    font-family: 'Georgia', serif;
-    font-size: 1em;
-    color: #555;
-    margin: 0;
-  }
-  
+
   .menu-image-wrapper {
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-    border: 2px solid #2A6060; /* Teal border */
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    height: 180px;
   }
-  
-  .menu-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 3px solid #D4AF37; /* Gold inner border */
-    border-radius: 10px;
-    box-sizing: border-box;
-    pointer-events: none;
-  }
-  
-  .menu-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+
   .menu-link {
-    display: inline-block;
-    margin-top: 30px;
-    font-family: 'Georgia', serif;
-    font-size: 1.2em;
-    color: #2A6060; /* Teal */
-    text-decoration: none;
-    border: 2px solid #D4AF37; /* Gold border */
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
-  
-  .menu-link:hover {
-    background-color: #FFDAB9; /* Peach on hover */
+}
+
+@media (max-width: 480px) {
+  .Menu-section {
+    padding: 3rem 1rem;
   }
-  
-  @media (max-width: 600px) {
-    .menu-item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .text-content {
-      padding-right: 0;
-      padding-bottom: 15px;
-    }
-  
-    .menu-image-wrapper {
-      width: 100px;
-      height: 100px;
-      align-self: center;
-    }
+
+  .menu-item h3 {
+    font-size: 1.2rem;
   }
+
+  .menu-item p {
+    font-size: 0.95rem;
+  }
+
+  .menu-link {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .menu-image-wrapper {
+    height: 160px;
+  }
+}
