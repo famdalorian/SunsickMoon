@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png';
+import logo from '../assets/Logo.svg';
 import '../components/styles/Header.css';
 
 function Header() {
